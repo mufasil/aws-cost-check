@@ -1,0 +1,50 @@
+{
+  "name": "aws-cost-check",
+  "version": "0.1.0",
+  "description": "Read-only CLI that finds the usual sources of a surprise AWS bill",
+  "type": "module",
+  "bin": {
+    "aws-cost-check": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.test.json",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "aws",
+    "cost",
+    "finops",
+    "ebs",
+    "nat-gateway",
+    "cloudwatch",
+    "cli"
+  ],
+  "author": "Mufasil Iqbal (https://mufasil.site)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mufasil/aws-cost-check.git"
+  },
+  "homepage": "https://github.com/mufasil/aws-cost-check#readme",
+  "dependencies": {
+    "@aws-sdk/client-budgets": "3.1161.0",
+    "@aws-sdk/client-cloudwatch": "3.1161.0",
+    "@aws-sdk/client-cloudwatch-logs": "3.1161.0",
+    "@aws-sdk/client-ec2": "3.1161.0",
+    "@aws-sdk/client-rds": "3.1161.0",
+    "@aws-sdk/client-sts": "3.1161.0"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.6",
+    "typescript": "7.0.2",
+    "vitest": "5.1.0"
+  }
+}
